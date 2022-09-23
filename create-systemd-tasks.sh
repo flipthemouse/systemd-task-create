@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 ############################
 #   UserINPUT Scriptname   #
@@ -34,7 +34,7 @@ echo "Create Script"
 # Creates the script code body
 
 cat > ./$SCRIPT.sh << EOF
-#!/usr/bin/env bash
+#!/bin/bash
 # $0 Stands for the initial script name that executes
 /usr/bin/logger -p local1.info "Hallo Welt von $0"
 EOF

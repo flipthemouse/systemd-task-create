@@ -47,9 +47,8 @@ echo "###############################"
 ############################
 create_service() {
 echo "Create Script service"
-#cat > $SYS_PATH/$SCRIPT.service << EOF
-
-cat > ./$SCRIPT.service << EOF
+cat > $SYS_PATH/$SCRIPT.service << EOF
+#cat > ./$SCRIPT.service << EOF
 [Unit]
 Description=$DESC_SERVICE
 After=network.target
@@ -70,9 +69,9 @@ echo "###############################"
 #    Create systemd.timer   #
 #############################
 create_timer() {
-#cat > $SYS_PATH/$SCRIPT.timer << EOF
 echo "Create Script timer"
-cat > ./$SCRIPT.timer << EOF
+cat > $SYS_PATH/$SCRIPT.timer << EOF
+#cat > ./$SCRIPT.timer << EOF
 [Unit]
 Description=$DESC_TIMER
 
@@ -117,5 +116,3 @@ create_service;
 create_timer;
 reload_service;
 reload_timer;
-
-

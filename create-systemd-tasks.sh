@@ -1,11 +1,4 @@
-############################
-#     Global Variables     #
-############################
-SCRIPT=test
-#SERVICE_PATH=$(pwd)/$SCRIPT
-SYS_PATH=/etc/systemd/system
-INTERPRETAR=/bin/bash/sh
-TIMER=15:0/2:00
+#!/usr/bin/env bash
 
 ############################
 #   UserINPUT Scriptname   #
@@ -23,14 +16,22 @@ echo "<Hour>:<Minute:<Second>"
 read ExecTime
 echo Your script will be daily executed at $ExecTime
 
+############################
+#     Global Variables     #
+############################
+SYS_PATH=/etc/systemd/system
+INTERPRETAR=/bin/bash/sh
 DESC_SERVICE="This service executes service, ${SCRIPT}.sh"
 DESC_TIMER="This timer schedules the service, ${SCRIPT}.service"
+
 ############################
 #       Create script      #
 ############################
 echo "###############################"
 create_script() {
 echo "Create Script"
+
+# Creates the script code body
 
 cat > ./$SCRIPT.sh << EOF
 #!/usr/bin/env bash
@@ -47,6 +48,9 @@ echo "###############################"
 ############################
 create_service() {
 echo "Create Script service"
+
+# Creates the service code body
+
 cat > $SYS_PATH/$SCRIPT.service << EOF
 #cat > ./$SCRIPT.service << EOF
 [Unit]
@@ -70,6 +74,9 @@ echo "###############################"
 #############################
 create_timer() {
 echo "Create Script timer"
+
+# Creates the timer code body
+
 cat > $SYS_PATH/$SCRIPT.timer << EOF
 #cat > ./$SCRIPT.timer << EOF
 [Unit]

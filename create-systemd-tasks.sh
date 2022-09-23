@@ -56,7 +56,7 @@ After=network.target
 
 [Service]
 ExecStart=$INTERPRETAR $(pwd)/$SCRIPT.sh
-Type=oneshoot
+Type=oneshot
 Restart=on-failure
 
 [Install]

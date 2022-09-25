@@ -87,7 +87,7 @@ EOF
 #############################
 #          Reloads          #
 #############################
-reload_service(){
+reload_service() {
     # restart daemon, enable and start service
     echo "Reloading daemon and enabling service"
     systemctl daemon-reload

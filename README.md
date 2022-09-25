@@ -1,2 +1,5 @@
 # systemd-task-create
-Creates automatically script, service and timer for systemd.
+Script that creates
+- script
+- service
+- timer with systemd

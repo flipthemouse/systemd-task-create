@@ -12,7 +12,7 @@ echo Scriptname: $SCRIPT
 #############################
 echo "Put the daily execution time:"
 echo "Example: 18:00:00"
-echo "<Hour>:<Minute:<Second>"
+echo "<Hour>:<Minute>:<Second>"
 read ExecTime
 echo Your script will be daily executed at $ExecTime
 

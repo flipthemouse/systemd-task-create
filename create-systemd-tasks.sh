@@ -21,7 +21,7 @@ echo Your script will be daily executed at $ExecTime
 ############################
 SYS_PATH=/etc/systemd/system
 INTERPRETAR=/bin/bash/sh
-DESC_SERVICE="This service executes service, ${SCRIPT}.sh"
+DESC_SERVICE="This service executes script, ${SCRIPT}.sh"
 DESC_TIMER="This timer schedules the service, ${SCRIPT}.service"
 
 ############################
@@ -118,8 +118,18 @@ echo "###############################"
 #####################################
 ####           MAIN              ####
 #####################################
-create_script;
-create_service;
-create_timer;
-reload_service;
-reload_timer;
+# check if service is active
+ACTIVE=$(sudo systemctl is-active $SCRIPT.service)
+if [ "$ACTIVE" == "active" ]; then
+    # restart the service
+    echo "Service is running"
+    echo "Restarting service"
+    sudo systemctl restart $SCRIPT.service
+    echo "Service restarted"
+else
+    create_script;
+    create_service;
+    create_timer;
+    reload_service;
+    reload_timer;
+If
